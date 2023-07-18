@@ -15,51 +15,49 @@ body{
     height: 12%;
     width: 100%;
 }
-.header2{
-    background-color:grey;
-    position: fixed;
-    top: 0 ;
-    left: 0;
-    height: 12%;
-    width: 50%;
-}
+
+
 .nav{
+    background-color:darkgray;
     display: flex;
     justify-content: space-between;
-    max-width: 992px;
-    margin: 0 auto;
+  padding: 0px;
+  
+ 
 }
 .nav-link{
     color: white;
     text-decoration: none;
+    padding: 10px;
+    
 }
 .logo{
     font-size: 30px;
     font-weight:  100;
-    padding: 0px;
-    
+    padding: 10px;
     color: white
 }
+
 .nav-menu{
-    display: flex;
-    margin-right: 10px;
-    list-style: none;
-    
-}
-.nav-menu{
-    font-size: 18px;
-    margin: 0 10px;
-    line-height: 40px;
+    font-size: 15px;
+    height: 10px;
     width: max-content;
+    display: flex;
+   list-style: none;
+     padding: 0.5px;
+    
 }
 .nav-menu-link{
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 5px;
     
 }
+.nav-menu-link:hover {
+background-color: darkslategrey;
+padding: 5px;
 
 
-
+}
 #contenido{
     padding: 10px 20px;
     position: fixed;
