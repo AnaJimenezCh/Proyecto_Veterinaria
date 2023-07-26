@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"    
       xmlns:th="http://www.thymeleaf.org">
-    
+
     <head th:fragment="head">
         <title>Veterinaria Lincoln</title>
         <meta charset="UTF-8" />
@@ -11,44 +11,61 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>         
- 
+
     </head>
-    
+
     <body>
         <header th:fragment="header" class="header">
-          <div class="container-fluid" style="background-color: darkseagreen">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary "  >
-   
-    <div class="container-fluid">
-      <a class="navbar-brand fs-3 text-white" href="#">Veterinaria Lincoln</a>
-       </div> 
-  </nav>
-</div>  
-   <nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-secondary">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-          <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+            <div class="container-fluid" style="background-color: darkseagreen">
 
-        </li>
-      </ul>
-  </div>
-   <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-dark btn-sm"  type="submit">Search</button>
-      </form>
-</nav>
-       
-      
-        </header>
-    </body>
-</html>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary "  >
+
+                    <div class="container-fluid">
+                        <a class="navbar-brand fs-3 text-white" href="#">Veterinaria Lincoln</a>
+                        <button type="button" class="btn btn-success">Iniciar Sesion</button>
+                    </div> 
+                </nav>    
+            </div>  
+
+            <nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-secondary">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Registrar Paciente</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Agendar Citas</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Tienda
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Farmacia</a></li>
+                                    <li><a class="dropdown-item" href="#">Pet Shop</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Servicios
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Servicios de Defuncion</a></li>
+                                    <li><a class="dropdown-item" href="#">Peluqueria y Spa</a></li>
+                                    <li><a class="dropdown-item" href="#">Transporte</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white bg-secondary" href="#">Acerca de</a>
+                            </li>
+                                        </ul>
+                                        </div>
+                                        </nav>
+
+                                        </header>
+
+
+                                        </body>
+                                        </html>
