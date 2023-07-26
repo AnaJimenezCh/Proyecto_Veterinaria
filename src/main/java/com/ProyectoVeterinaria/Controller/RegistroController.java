@@ -21,7 +21,7 @@ public class RegistroController {
    @RequestMapping("/acerca")
     public String page(Model model) {
         //model.addAttribute("mensaje", "hola desde el controllador");
-        return "acerca";
+        return "registro";
     
    
         
