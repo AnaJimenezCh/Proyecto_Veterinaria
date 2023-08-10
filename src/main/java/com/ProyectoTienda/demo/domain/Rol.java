@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ProyectoVeterinaria.service.impl;
+package com.ProyectoTienda.demo.domain;
 
 /**
  *
- * @author AnaJimenezCh
+ * @author Eduardo
  */
-public class InicioServiceImpl {
+public class Rol {
     
 }

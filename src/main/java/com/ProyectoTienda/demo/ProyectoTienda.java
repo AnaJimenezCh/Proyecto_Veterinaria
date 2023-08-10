@@ -1,13 +1,13 @@
-package com.ProyectoVeterinaria;
+package com.ProyectoTienda.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProyectoVeterinariaApplication {
+public class ProyectoTienda {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProyectoVeterinariaApplication.class, args);
+		SpringApplication.run(ProyectoTienda.class, args);
 	}
 
 }
