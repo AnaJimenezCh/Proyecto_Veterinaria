@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"    
       xmlns:th="http://www.thymeleaf.org">
 
+
     <head th:fragment="head">
         <title>Veterinaria Lincoln</title>
         <meta charset="UTF-8" />
@@ -11,7 +12,7 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>         
-
+        <link href="css/principal.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
@@ -34,9 +35,19 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="#">Registrar Paciente</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="#">Agendar Citas</a>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Citas
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Agendar Cita</a></li>
+                                    <li><a class="dropdown-item" href="#">Agendar Cita Odontologia</a></li>
+
+                                </ul>
                             </li>
+
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Tienda
@@ -60,12 +71,40 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white bg-secondary" href="#">Acerca de</a>
                             </li>
-                                        </ul>
-                                        </div>
-                                        </nav>
+                        </ul>
+                    </div>
+            </nav>
 
-                                        </header>
+        </header>
+        <section th:fragment="section">
+            <div class="slider text-center " id="slider-1">
+               
+                <ul>
+                    <li>
+                <img src="images/OIP.jpg" class="rounded" width="500" height="300" />     
+                    </li> 
+                    <li>
+                        <img src="images/imagen 4.jpeg" class="rounded" width="500" height="300"/>     
+                  
+                    </li> 
+                     <li>
+                        <img src="images/conejo.jpg" class="rounded" width="500" height="300"/>     
+                      </li>
+                        <li>
+                        <img src="images/imagen 3.jpg" class="rounded" width="500" height="300"/>   
+                        </li>
+                        </ul>
+                </div>
+        </section >
+        <footer th:fragment="footer" class="bg-secondary mt-3 p-6">
+            <div class="container ">
+                <div class="col">
+                    <p class="lead text-center text-white fs-6">
+                        &COPY [[#{plantilla.derechos}]]
+                    </p>
+                </div>
+            </div>
+        </footer>
 
-
-                                        </body>
-                                        </html>
+    </body>
+</html>
