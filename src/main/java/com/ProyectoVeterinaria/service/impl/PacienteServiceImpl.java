@@ -51,4 +51,13 @@ public class PacienteServiceImpl implements PacienteService {
     public void delete(Paciente paciente) {
         pacienteDao.delete(paciente);
     } 
-}
+
+    @Override
+    public List<Paciente> getPorMascota(String Mascota) {
+ return pacienteDao.findByMascota(Mascota)      ; 
+    }
+
+    
+    }
+
+               

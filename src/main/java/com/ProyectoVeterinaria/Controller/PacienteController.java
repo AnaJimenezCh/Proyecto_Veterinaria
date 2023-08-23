@@ -1,10 +1,12 @@
 
 package com.ProyectoVeterinaria.Controller;
 
+import com.ProyectoVeterinaria.domain.Cliente;
 import com.ProyectoVeterinaria.domain.Paciente;
-import com.ProyectoVeterinaria.domain.Tipo;
+import com.ProyectoVeterinaria.service.ClienteService;
+
 import com.ProyectoVeterinaria.service.PacienteService;
-import com.ProyectoVeterinaria.service.TipoService;
+
 import com.ProyectoVeterinaria.service.impl.FirebaseStorageServiceImpl;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +28,7 @@ public class PacienteController {
     PacienteService pacienteService;
     
     @Autowired
-    TipoService tipoService;
+    ClienteService clienteService;
     
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
@@ -36,12 +38,11 @@ public class PacienteController {
     public String page(Model model) {
         log.info("Consumiendo el recurso /paciente/lista");
         List<Paciente> pacientes = pacienteService.getPacientes(false);
-        List<Tipo> tipos = tipoService.getTipos(true);
-        
+        List<Cliente> clientes = clienteService.getClientes(true);
+             model.addAttribute("totalPacientes", pacientes.size());
         model.addAttribute("pacientes", pacientes);
-        model.addAttribute("tipos", tipos);
-        model.addAttribute("totalPacientes", pacientes.size());
-        return "/paciente/lista";
+        model.addAttribute("clientes", clientes);
+       return "/paciente/lista";
     }
 @GetMapping("/nuevo")
     public String pacienteNuevo(Paciente paciente) {
@@ -73,9 +74,9 @@ public class PacienteController {
     @GetMapping("/modificar/{idPaciente}")
     public String pacienteModificar(Paciente paciente, Model model) {
         paciente = pacienteService.getPaciente(paciente);
-         List<Tipo> tipos = tipoService.getTipos(true);
+         List<Cliente> clientes = clienteService.getClientes(true);
         model.addAttribute("paciente", paciente);
-        model.addAttribute("tipos", tipos);
+        model.addAttribute("clientes", clientes);
         return "/paciente/modifica";
     }
 

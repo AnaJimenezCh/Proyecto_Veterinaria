@@ -16,8 +16,8 @@
                             type="button" 
                             class="btn btn-success btn-block" 
                             data-bs-toggle="modal" 
-                            data-bs-target="#agregarPaciente">
-                            <i class="fas fa-plus"></i> [[#{paciente.agregar}]]
+                            data-bs-target="#agregarCliente">
+                            <i class="fas fa-plus"></i> [[#{cliente.agregar}]]
                         </button>
                     </div>
                 </div>
@@ -25,8 +25,8 @@
         </section>
 
         <!-- 2 Fragmento para agregar producto, es la ventana modal -->
-        <section th:fragment="agregarPaciente">
-            <div id="agregarPaciente" 
+        <section th:fragment="agregarCliente">
+            <div id="agregarCliente" 
                  class="modal fade" 
                  tabindex="-1" 
                  aria-labelledby="exampleModalLabel" 
@@ -34,55 +34,48 @@
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
                         <div class="modal-header bg-black text-white">
-                            <h5 class="modal-title">[[#{paciente.agregar}]]</h5>
+                            <h5 class="modal-title">[[#{cliente.agregar}]]</h5>
                             <button type="button" 
                                     class="btn-close" 
                                     data-bs-dismiss="modal" 
                                     aria-label="Close"></button>
                         </div> 
-                        <form th:action="@{/paciente/guardar}" th:object="${paciente}"
+                        <form th:action="@{/cliente/guardar}" th:object="${cliente}"
                               method="POST" class="was-validated"
                               enctype="multipart/form-data">
                             <input type="hidden" name="nuevaImagen" value="NO"/>
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="cliente.idCliente">[[#{paciente.cliente}]]</label>
-                                    <select name="idCliente" 
-                                            class="form-select" 
-                                            aria-label="Default select example">
-                                        <option th:each="c : ${clientes}" th:value="${c.idCliente}" th:text="${c.nombre}">
-                                        </option>
-                                    </select>
+                                    <label for="nombre">[[#{cliente.nombre}]]</label>
+                                    <input type="text" class="form-control" name="nombre" required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="mascota">[[#{paciente.mascota}]]</label>
-                                    <input type="text" class="form-control" name="mascota" required="true"/>
+                                    <label for="identificacion">[[#{cliente.identificacion}]]</label>                                    
+                                    <input type="text" class="form-control" name="identificacion" required="true"/>
                                 </div>
-                              
                                 <div class="mb-3">
-                                    <label for="consulta">[[#{paciente.consulta}]]</label>                                    
-                                    <input type="text" class="form-control" name="consulta" required="true"/>
+                                    <label for="telefono">[[#{cliente.telefono}]]</label>                                    
+                                    <input type="text" class="form-control" name="telefono" required="true"/>
                                 </div>
-                               
                                 <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label for="imagen">[[#{paciente.imagen}]]</label>
-                                        <input class="form-control" type="file" name="imagenFile"
-                                               onchange="readURL(this);" >
-                                            <img id="blah" src="#" alt="your image" height="200"/>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="activo">[[#{paciente.activo}]]</label>
-                                        <input class="form-check-input" 
-                                               type="checkbox" 
-                                               name="activo" 
-                                               id="activo">
-                                    </div>
+                                    <label for="correo">[[#{cliente.correo}]]</label>                                    
+                                    <input type="text" class="form-control" name="correo" required="true"/>
                                 </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="submit">Guardar</button>
+                                <div class="mb-3">
+                                    <label for="precio">[[#{cliente.precio}]]</label>                                    
+                                    <input type="number" class="form-control" name="precio" required="true"/>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="activo">[[#{paciente.activo}]]</label>
+                                    <input class="form-check-input" 
+                                           type="checkbox" 
+                                           name="activo" 
+                                           id="activo">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="submit">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -90,41 +83,43 @@
         </section>
 
         <!-- 3 Sección principal para mostrar la informaccion de la entidad paciente -->
-        <section th:fragment="listaPacientes" id="pacientes">
+        <section th:fragment="listaClientes" id="clientes">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10">
                         <div class="card">
                             <div class="card-header">
-                                <h4 >[[#{paciente.lista}]]</h4></div>
-                            <div th:if="${pacientes != null and !pacientes.empty}" >
+                                <h4>[[#{cliente.lista}]]</h4></div>
+                            <div th:if="${clientes != null and !clientes.empty}" >
                                 <table class="table table-striped table-hover fs-6">
                                     <thead class="table-dark">
                                         <tr><th>#</th>
-                                            <th class="text-center ">[[#{paciente.mascota}]]</th>
-                                            <th class="text-center">[[#{paciente.consulta}]]</th>
-                                            <th class="text-center">[[#{paciente.cliente}]]</th>
-                                            
+                                            <th class="text-center">[[#{cliente.nombre}]]</th>
+                                            <th class="text-center">[[#{cliente.identificacion}]]</th>
+                                            <th class="text-center">[[#{cliente.telefono}]]</th>
+                                            <th class="text-center">[[#{cliente.correo}]]</th>
+                                            <th class="text-center">[[#{cliente.precio}]]</th>
                                             <th></th><th></th></tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="paciente, contador : ${pacientes}">​
+                                        <tr th:each="cliente, contador : ${clientes}">​
                                             <td class="text-center">[[${contador.count}]]</td>​
-                                            <td class="fs-6">[[${paciente.mascota}]]</td>​
-                                            <td class="fs-6">[[${paciente.consulta}]]</td>​
-                                            
-                                            ​<td>[[${paciente.cliente.nombre}]]</td>
-                                            <td><a th:href="@{/paciente/eliminar/}+${paciente.idPaciente}"
+                                            <td class="fs-6">[[${cliente.nombre}]]</td>​
+                                            <td class="fs-6">[[${cliente.identificacion}]]</td>​
+                                            <td class="fs-6">[[${cliente.telefono}]]</td>​
+                                            <td class="fs-6">[[${cliente.correo}]]</td>​
+                                            <td class="text-end">[[${#numbers.formatDecimal(cliente.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
+                                            <td><a th:href="@{/cliente/eliminar/}+${cliente.idCliente}"
                                                    class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a></td>
                                             <td>
-                                                <a th:href="@{/paciente/modificar/}+${paciente.idPaciente}"
+                                                <a th:href="@{/cliente/modificar/}+${cliente.idCliente}"
                                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
                                                     <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-center p-2" th:if="${pacientes == null or pacientes.empty}">
+                            <div class="text-center p-2" th:if="${clientes == null or clientes.empty}">
                                 <span>[[#{lista.vacia}]]</span>
                             </div>
                         </div>
@@ -134,18 +129,18 @@
         </section>
 
         <!-- 4 Fragmento que se utiliza en la página modifca.html -->
-        <section th:fragment="editarPaciente">
+        <section th:fragment="editarCliente">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <form method="POST"
-                          th:action="@{/paciente/guardar}" th:object="${paciente}"
+                          th:action="@{/cliente/guardar}" th:object="${cliente}"
                           class="was-validated"
                           enctype="multipart/form-data">
-                        <input type="hidden" name="idPaciente" th:field="*{idPaciente}"/>
+                        <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
                         <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
                         <input type="hidden" name="nuevaImagen" value="NO"/>
-                        <section th:replace="~{paciente/elementos :: botonesEditar}"/>
+                        <section th:replace="~{cliente/elementos :: botonesEditar}"/>
                         <div id=details>
                             <div class="container">
                                 <div class="row">
@@ -154,34 +149,33 @@
                                             <div class="card-header">
                                                 <h4>[[#{accion.actualizar}]]</h4>
                                             </div>
-                                            
-                                            <div class="card-body">
                                                 <div class="mb-3">
-                                                    <label for="cliente.idCliente">[[#{paciente.cliente}]]</label>
-                                                    <select th:field="*{cliente.idCliente}"
-                                                            class="form-select" 
-                                                            aria-label="Default select example">
-                                                        <option th:each="c : ${clientes}" th:value="${c.idCliente}" th:text="${c.nombre}">
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="mascota">[[#{paciente.mascota}]]</label>                                    
+                                                    <label for="nombre">[[#{cliente.nombre}]]</label>                                    
                                                     <input type="text" class="form-control" 
-                                                           th:field="*{mascota}" required="true"/>
+                                                           th:field="*{nombre}" required="true"/>
                                                 </div>
-                                           
                                                 <div class="mb-3">
-                                                    <label for="consulta">[[#{paciente.consulta}]]</label>                                    
+                                                    <label for="identificacion">[[#{cliente.identificacion}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           th:field="*{identificacion}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="telefono">[[#{cliente.telefono}]]</label>                                    
                                                     <textarea class="form-control" 
-                                                              th:field="*{consulta}" rows="3"></textarea>
-                                             
-                                                <div class="mb-3">
-                                                    <label for="imagen">[[#{paciente.imagen}]]</label>
-                                                    <input class="form-control" type="file" name="imagenFile"
-                                                           onchange="readURL(this);" />
-                                                    <img id="blah" th:src="@{${paciente.rutaImagen}}" alt="your image" height="200"/>
+                                                              th:field="*{telefono}" rows="3"></textarea>
                                                 </div>
+                                                <div class="mb-3">
+                                                    <label for="correo">[[#{cliente.correo}]]</label>                                    
+                                                    <textarea class="form-control" 
+                                                              th:field="*{correo}" rows="3"></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="precio">[[#{correo.precio}]]</label>                                    
+                                                    <input type="number" class="form-control" 
+                                                           th:field="*{precio}" required="true"/>
+                                                </div>
+
                                                 <div class="mb-3">
                                                     <label for="activo">[[#{paciente.activo}]]</label>
                                                     <input class="form-check-input" 
@@ -204,12 +198,12 @@
             <div class="container py-4 mb-4 bg-light">
                 <div class="row">
                     <div class="col-md-4 d-grid">
-                        <a th:href="@{/paciente/lista}" class="btn btn-warning">
+                        <a th:href="@{/cliente/lista}" class="btn btn-primary">
                             <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                         </a>
                     </div>
                     <div class="col-md-4 d-grid">                                
-                        <a th:href="@{/paciente/eliminar/}+${paciente.idPaciente}"
+                        <a th:href="@{/cliente/eliminar/}+${cliente.idCliente}"
                            class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>

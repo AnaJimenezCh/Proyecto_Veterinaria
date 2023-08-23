@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.ProyectoVeterinaria.domain;
 
-/**
- *
- * @author AnaJimenezCh
- */
+
 import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
@@ -23,31 +17,48 @@ public class Paciente implements Serializable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id_paciente")
     private Long idPaciente;
-    private String nombre;
-    private String identificacion;
+    private String mascota;
     private String consulta;
     private String rutaImagen;
     private boolean activo;
     
     @ManyToOne
-    @JoinColumn(name="id_tipo")
-    private Tipo tipo;
+    @JoinColumn(name="id_cliente")
+    private Cliente cliente;
 
     public Paciente() {
     }
 
-    public Paciente(Long idPaciente, String nombre, String identificacion, String consulta, String rutaImagen, boolean activo, Tipo tipo) {
+    public Paciente(Long idPaciente, String mascota, String consulta, String rutaImagen, boolean activo, Cliente cliente) {
         this.idPaciente = idPaciente;
-        this.nombre = nombre;
-        this.identificacion = identificacion;
+        this.mascota = mascota;
         this.consulta = consulta;
         this.rutaImagen = rutaImagen;
         this.activo = activo;
-        this.tipo = tipo;
+        this.cliente = cliente;
     }
 
  
+
+   
+
+   
+
+ 
     }
+
+   
+    
+
+        
+    
+
+ 
+     
+    
+
+ 
+    
 
  
    

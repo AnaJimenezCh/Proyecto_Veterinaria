@@ -35,11 +35,6 @@
                         </li>
                     </ul>
 
-                    <button type="button" th:href="@{/iniciarsesion}" class="btn btn-outline-success p-9 btn-sm" >IniciarSesion</button>
-
-                    <button type="button" th:href="@{/iniciarsesion}" class="btn btn-outline-success btn-sm" >Registrarse</button>
-
-
                 </nav>
             </div>
 
@@ -47,12 +42,18 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
-                            
-                            <li class="nav-item">
-                                <a th:href="@{/registro}" class="nav-link text-white">Agendar Cita</a>
+                                
+                             <li class="nav-item">
+                                <a  class="nav-link text-white" >Iniciar Sesion</a>
+                            </li>
+                             <li class="nav-item">
+                                <a  class="nav-link text-white" th:href="@{/cliente/lista}">Registrar Cliente</a>
+                            </li>
+                             <li class="nav-item">
+                                <a  class="nav-link text-white" th:href="@{/paciente/lista}">Pacientes</a>
                             </li>
                             <li class="nav-item">
-                                <a  class="nav-link text-white" th:href="@{/paciente/lista}">Pacientes</a>
+                                <a th:href="@{/registro}" class="nav-link text-white">Agendar Cita</a>
                             </li>
                             <li class="nav-item">
                                 <a th:href="@{/registro}" class="nav-link text-white">Agenda</a>
@@ -62,21 +63,14 @@
                                 <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Tienda
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Farmacia</a></li>
-                                    <li><a class="dropdown-item" href="#">Pet Shop</a></li>
+                                <ul class="dropdown-menu bg-secondary">
+                                    <li><a class="dropdown-item  " th:href="@{/farmacia/listado}">Farmacia</a></li>
+                                    <li><a class="dropdown-item  " th:href="@{/producto/listado}">Pet Shop</a></li>
 
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Servicios
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Servicios de Defuncion</a></li>
-                                    <li><a class="dropdown-item" href="#">Peluqueria y Spa</a></li>
-                                    <li><a class="dropdown-item" href="#">Transporte</a></li>
-                                </ul>
+                           <li class="nav-item">
+                                <a class="nav-link text-white bg-secondary" href="#">Servicios</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white bg-secondary" href="#">Acerca de</a>

@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author AnaJimenezCh
  */
 @Controller
-public class citasController {
+public class UsuarioController {
     
-    @RequestMapping("index")
+    @RequestMapping("/url")
     public String page(Model model) {
-        //model.addAttribute("attribute", "value");
-        return "index";
+        model.addAttribute("attribute", "value");
+        return "view.name";
     }
     
 }
