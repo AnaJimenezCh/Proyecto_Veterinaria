@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="layout/plantilla ::head">
+        <title>Veterinaria</title>
+    </head>
+    <body>
+        <header  th:replace="~{layout/plantilla :: header}"/>
+
+        <section style="background-color:white">
+            <div style="color:peru; font-size: 30px; font-family: cursive" class="text-center">
+                <h1></h1>[[#{acerca.titulo}]]
+            </div>
+            <div Style="color: black; font-family: var" class="text-center">
+                <h2></h2>[[#{acerca.titulo2}]]
+                <p></p>[[#{acerca.parrafo1}]]
+                <br>
+                    <br>
+                        <div Style="color:peru; font-size: 15px;font-family:cursive;" class="text-center">
+                            <p></p>[[#{acerca.parrafo2}]]
+
+                        </div>   
+                        <div class="text-center" style="font-size: 15px; font-family: var ;background-color: white">   
+                            <p></p>[[#{acerca.lista1}]]
+                            <p></p>[[#{acerca.lista2}]]
+                            <p></p>[[#{acerca.lista3}]]
+                            <p></p>[[#{acerca.lista4}]]
+                            <p></p>[[#{acerca.lista5}]]
+
+                        </div>
+                        <br><br>
+                                <div Style="color:black; font-size: 15px;font-family:cursive;" class="text-center">
+                                    <p></p>[[#{acerca.parrafo6}]]
+                                </div>
+                                <div Style="color:black; font-size: 15px;font-family:cursive;" class="text-center">
+                                    <p></p>[[#{acerca.parrafo7}]]
+                                            </div>
+                                   <br><br>
+                                            <div class="text-center" style="font-size: 20px; font-family: cursive; color:peru" >
+                                                <p></p>[[#{acerca.parrafo3}]]
+                                            </div>
+                                            <br>
+                                                <article class="text-center" style="font-size: 20px; font-family: sans-serif;">
+                                                    <h3 style="background-color: palegoldenrod"></h3>[[#{acerca.titulo3}]]
+                                                    <iframe 
+                                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.9955614697287!2d-84.18947799030485!3d9.934326574122167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fea9e93466c1%3A0x1906787cfef8ee1e!2sCentro%20Comercial%20Santa%20Ana%20Central!5e0!3m2!1ses!2scr!4v1692809451154!5m2!1ses!2scr" 
+                                                        width="1400" height="450" 
+                                                        style="border:0;" 
+                                                        allowfullscreen="" loading="lazy" 
+                                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                </article>
+                                                </section>
+
+                                                <footer th:replace="~{layout/plantilla :: footer}"/>  
+                                                </body>
+                                                </html>

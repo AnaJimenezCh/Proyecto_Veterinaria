@@ -114,9 +114,7 @@
                                             <td class="fs-6">[[${paciente.consulta}]]</td>​
                                             
                                             ​<td>[[${paciente.cliente.nombre}]]</td>
-                                            <td><a th:href="@{/paciente/eliminar/}+${paciente.idPaciente}"
-                                                   class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
-                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a></td>
+                                           
                                             <td>
                                                 <a th:href="@{/paciente/modificar/}+${paciente.idPaciente}"
                                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">

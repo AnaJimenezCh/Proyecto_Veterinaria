@@ -60,10 +60,7 @@
                                     <input type="number" class="form-control" name="precio" required="true"/>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="existencias">[[#{farmacia.existencias}]]</label>                                    
-                                    <input type="number" class="form-control" name="existencias" required="true"/>
-                                </div>
+                               
                                 <div class="mb-3">
                                     <label for="imagen">[[#{farmacia.imagen}]]</label>
                                     <input class="form-control" type="file" name="imagenFile"
@@ -102,8 +99,8 @@
                                         <tr><th>#</th>
                                             <th class="text-center">[[#{farmacia.descripcion}]]</th>
                                             <th class="text-center">[[#{farmacia.precio}]]</th>
-                                            <th class="text-center">[[#{farmacia.existencias}]]</th>
-                                            <th class="text-center">[[#{farmacia.total}]]</th>
+                                          
+                                          
                                             <th class="text-center">[[#{farmacia.activo}]]</th>
                                           
                                             <th></th><th></th></tr>
@@ -113,13 +110,10 @@
                                             <td class="text-center">[[${contador.count}]]</td>
                                             <td class="fs-6">[[${farmacia.descripcion}]]</td>
                                             <td class="text-end">[[${#numbers.formatDecimal(farmacia.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
-                                            <td class="text-center">[[${farmacia.existencias}]]</td>
-                                            <td class="text-end">[[${#numbers.formatDecimal(farmacia.precio*farmacia.existencias, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
+                                           
                                             <td  class="text-center" th:text="${farmacia.activo} ? 'Activa' : 'Inactiva'" />
                                          
-                                            <td><a th:href="@{/farmacia/eliminar/}+${farmacia.idFarmacia}"
-                                                   class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
-                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a></td>
+                                           
                                             <td>
                                                 <a th:href="@{/farmacia/modificar/}+${farmacia.idFarmacia}"
                                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
@@ -177,11 +171,7 @@
                                                            th:field="*{precio}" required="true"/>
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="existencias">[[#{farmacia.existencias}]]</label>                                    
-                                                    <input type="number" class="form-control" 
-                                                           th:field="*{existencias}" required="true"/>
-                                                </div>
+                                               
 
                                                 <div class="mb-3">
                                                     <label for="imagen">[[#{farmacia.imagen}]]</label>
